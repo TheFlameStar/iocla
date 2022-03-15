@@ -16,8 +16,8 @@
 */
 
 void reversePic(Picture *pic) {
-	for (i = 0; i < pic->height / 2; ++i)
-		for (j = 0; j < pic->width; ++j) {
+	for (int i = 0; i < pic->height / 2; ++i)
+		for (int j = 0; j < pic->width; ++j) {
 			unsigned char c;
 			c = GET_PIXEL(pic->pix_array, i, j).R;
 			GET_PIXEL(pic->pix_array, i, j).R = GET_PIXEL(pic->pix_array, pic->height - i - 1, j).R;
@@ -45,8 +45,8 @@ void reversePic(Picture *pic) {
 
 void colorToGray(Picture *pic)
 {
-	for (i = 0; i < pic->height / 2; ++i)
-		for (j = 0; j < pic->width; ++j) {
+	for (int i = 0; i < pic->height / 2; ++i)
+		for (int j = 0; j < pic->width; ++j) {
 			GET_PIXEL(pic->pix_array, i, j).R *= 0.3;
 			GET_PIXEL(pic->pix_array, i, j).G *= 0.59;
 			GET_PIXEL(pic->pix_array, i, j).B *= 0.11;
