@@ -21,7 +21,7 @@ void reversePic(Picture *pic) {
 			unsigned char c;
 			c = GET_PIXEL(pic->pix_array, i, j).R;
 			GET_PIXEL(pic->pix_array, i, j).R = GET_PIXEL(pic->pix_array, pic->height - i - 1, j).R;
-			GET_PIXEL(pic->pix_array, pic->height - i - 1 j).R = c;
+			GET_PIXEL(pic->pix_array, pic->height - i - 1, j).R = c;
 
 			c = GET_PIXEL(pic->pix_array, i, j).G;
 			GET_PIXEL(pic->pix_array, i, j).G = GET_PIXEL(pic->pix_array, pic->height - i - 1, j).G;
@@ -29,7 +29,7 @@ void reversePic(Picture *pic) {
 
 			c = GET_PIXEL(pic->pix_array, i, j).B;
 			GET_PIXEL(pic->pix_array, i, j).B = GET_PIXEL(pic->pix_array, pic->height - i - 1, j).B;
-			GET_PIXEL(pic->pix_array, pic->height - i - 1 j).B = c;
+			GET_PIXEL(pic->pix_array, pic->height - i - 1, j).B = c;
 		}
 }
 
