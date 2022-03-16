@@ -11,7 +11,7 @@ int main() {
 	for (unsigned int i = 0 ; i < sizeof(v) / sizeof(*int_ptr) ; ++i) {
 		++int_ptr;
 	}
-
+	// I inspected the program
 	(void) a;
 	(void) b;
 	(void) c;
