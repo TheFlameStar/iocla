@@ -29,6 +29,31 @@ add_byte_array_element:
 
 
     ; TODO: Compute sum for elements in word_array and dword_array.
+    mov ecx, ARRAY_SIZE     ; Use ecx as loop counter.
+    xor eax, eax            ; Use eax to store the sum.
+    xor edx, edx            ; Store current value in dl; zero entire edx.
+
+add_word_array_element:
+    mov dx, word [word_array + ecx * 2 - 2]
+    add eax, edx
+    loop add_word_array_element ; Decrement ecx, if not zero, add another element.
+
+    PRINTF32 `%s\x0`, print_format
+    PRINTF32 `%u\n\x0`, eax
+
+    mov ecx, ARRAY_SIZE     ; Use ecx as loop counter.
+    xor eax, eax            ; Use eax to store the sum.
+    xor edx, edx            ; Store current value in dl; zero entire edx.
+
+add_dword_array_element:
+    mov edx, dword [dword_array + ecx * 4 - 4]
+    add eax, edx
+    loop add_dword_array_element ; Decrement ecx, if not zero, add another element.
+
+    PRINTF32 `%s\x0`, print_format
+    PRINTF32 `%u\n\x0`, eax
+
+
 
     leave
     ret
