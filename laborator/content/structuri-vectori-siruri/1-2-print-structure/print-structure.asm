@@ -65,6 +65,8 @@ main:
     call printf
     add esp, 8
 
+    mov word [sample_student + age], 22
+
     lea ebx, [string_age]
     push ebx
     push string_format
@@ -77,6 +79,8 @@ main:
     push dec_format
     call printf
     add esp, 8
+
+    mov byte [sample_student + group + 2], '3'
 
     lea ebx, [string_group]
     push ebx
@@ -101,6 +105,8 @@ main:
     push dec_format
     call printf
     add esp, 8
+
+    mov word [sample_student + birth_year], 1993
 
     lea ebx, [string_year]
     push ebx
