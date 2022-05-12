@@ -13,7 +13,20 @@ toupper:
     mov ebp, esp
 
     ; TODO
+    mov eax, dword[ebp + 8]
+verify:
+    mov bl, byte[eax]
+    test bl, bl
+    je out
+    sub bl, 32
+    mov byte[eax], bl
+    inc eax
+    jmp verify
 
+;for bonus we first verify if it bigger than a, and after that if it is smaller
+; than z. If so, we make it big by substracting 32
+
+exit:
     leave
     ret
 
