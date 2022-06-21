@@ -25,5 +25,20 @@ add_to_sum:
     PRINTF32 `%s\x0`, print_format2
     PRINTF32 `%u\n\x0`, eax
 
+    mov ecx, [num]     ; Use ecx as counter for computing the sum.
+    xor eax, eax       ; Use eax to store the sum. Start from 0.
+
+add_to_sum_square:
+    mov ebx, ecx
+    imul ebx, ebx
+    add eax, ebx
+    loop add_to_sum_square    ; Decrement ecx. If not zero, add it to sum.
+
+    mov ecx, [num]
+    PRINTF32 `%s\x0`, print_format1
+    PRINTF32 `%u\x0`, ecx
+    PRINTF32 `%s\x0`, print_format2
+    PRINTF32 `%u\n\x0`, eax
+
     leave
     ret

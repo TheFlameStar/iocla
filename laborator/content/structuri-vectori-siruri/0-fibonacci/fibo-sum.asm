@@ -20,6 +20,15 @@ main:
     ; TODO: calculate the sum of first N fibonacci numbers
     ;       (f(0) = 0, f(1) = 1)
     xor eax, eax     ;store the sum in eax
+    mov ebx, 0
+    mov ecx, [N]
+    mov edx, 1
+
+fibo:
+    add eax, edx
+    add ebx, edx
+    xchg ebx, edx
+    loop fibo
 
     ; use loop instruction
 
