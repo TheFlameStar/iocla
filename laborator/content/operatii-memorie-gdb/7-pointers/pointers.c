@@ -5,9 +5,38 @@
 
 #define SIGN(X) (((X) > 0) - ((X) < 0))
 
-int my_strcmp(const char *s1, const char *s2);
-void *my_memcpy(void *dest, const void *src, size_t n);
-char *my_strcpy(char *dest, const char *src);
+int my_strcmp(const char *s1, const char *s2)
+{
+	int i = 0;
+	while (*(s1 + i) && *(s2 + i)) {
+		if (*(s1 + i) != *(s2 + i))
+			break;
+		++i;
+	}
+	if ((*s1 + i) == *(s2 + i))
+		return 0;
+	else if (*(s1 + i) < *(s2 + i))
+		return -1;
+	else
+		return 1;
+}
+
+void *my_memcpy(void *dest, const void *src, size_t n)
+{
+	int i;
+	for (i = 0; i < n; ++i)
+		*(char*)(dest + i) = *(char*)(src + i);
+	return dest;
+}
+
+char *my_strcpy(char *dest, const char *src)
+{
+	int l = strlen(src), i;
+	for (i = 0; i < l; ++i)
+		*(dest + i) = *(src + i);
+	*(dest + i) = '\0';
+	return dest;
+}
 
 int main() {
 	char s1[] = "Abracadabra";
@@ -15,8 +44,6 @@ int main() {
 	char src[] = "Learn IOCLA, you must!";
 	char *dest = malloc(sizeof(src));
 
-	(void) s1;
-	(void) s2;
 
 	/*
 	Decomentati pe rand cate un assert pe masura ce implementati o functie.
