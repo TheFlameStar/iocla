@@ -8,7 +8,22 @@ int main(void)
 	int end = sizeof(v) / sizeof(int) - 1;
 
 	/* TODO: Implement binary search */
-	(void) dest;
-	(void) start;
-	(void) end;
+binary:
+	printf("start= %d   end= %d  middle= %d\n", start, end, (start + end) / 2);
+	if (v[(start + end) / 2] == dest || start > end)
+		goto end;
+	if (v[(start + end) / 2] > dest) {
+		end = (start + end) / 2 - 1;
+		goto binary;
+	}
+	start = (start + end) / 2 + 1;
+	goto binary;
+
+end:
+	if (start > end) {
+		printf("Nu exista\n");
+		return 0;
+	}
+	printf("Exista pe pozitia %d\n", (start + end) / 2);
+	return 0;		
 }
